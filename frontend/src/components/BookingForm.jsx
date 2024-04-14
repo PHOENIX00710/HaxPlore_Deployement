@@ -34,7 +34,7 @@ function BookingForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
-    if(formData.visitors < (formData.infants + formData.seniors))
+    if(Number(formData.visitors) < (Number(formData.infants) + Number(formData.seniors)))
       return toast.error("No of total visitors less entered details")
     dispatch(bookingDetailsUpdate(formData));
     navigate("/booking")
