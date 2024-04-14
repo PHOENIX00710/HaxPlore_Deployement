@@ -1,0 +1,52 @@
+/* General table styles for consistency and readability */
+table {
+  border-collapse: collapse; /* Removes space between borders */
+  width: 100%; /* Ensures the table fills its container */
+  text-align: left; /* Aligns text to the left for readability */
+}
+
+/* Header styles */
+th {
+  background: linear-gradient(145deg, #ff7e5f, #feb47b); /* Orange gradient for header */
+  color: #ffffff;
+  border: 2px solid #f56a00; /* Darker orange for border */
+  padding: 10px 20px;
+  text-align: left; /* Ensures consistency in text alignment */
+}
+
+/* Cell styles */
+td {
+  padding: 10px 20px; /* Increase padding for better spacing */
+  border-bottom: 1px solid #f56a00; /* Darker orange for row separation */
+}
+
+/* Row styling for hover effect */
+tr:hover {
+  background-color: #ffe5d4; /* A light orange shade for hover, enhancing interactivity */
+}
+
+/* Zebra striping for rows */
+tbody tr:nth-child(odd) {
+  background-color: #fff4e6; /* A very light orange, for every other row */
+}
+
+/* First column emphasis */
+td:first-child {
+  font-weight: bold; /* Makes the first column (e.g., UserName) more prominent */
+}
+
+/* Adjustments for mobile responsiveness (optional) */
+@media (max-width: 768px) {
+  th,
+  td {
+    display: block;
+    width: 100%;
+  }
+  tr {
+    margin-bottom: 10px;
+    display: block;
+  }
+  thead {
+    display: none; /* Hides the header row on smaller screens for simplicity */
+  }
+}
