@@ -22,7 +22,7 @@ function SignUp() {
     e.preventDefault();
     try {
       setLoading(true);
-      const req = await fetch("http://localhost:3000/api/auth/signup", {
+      const req = await fetch("https://haxplore-deployement.onrender.com/api/auth/signup", {
         method: "POST",
         credentials: "include",
         headers: {

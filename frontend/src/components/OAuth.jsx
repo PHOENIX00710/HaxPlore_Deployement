@@ -38,7 +38,7 @@ function OAuth() {
       const result = await signInWithPopup(auth, provider);
       // Submit data for database
       try {
-        const res = await fetch("http://localhost:3000/api/auth/signup", {
+        const res = await fetch("https://haxplore-deployement.onrender.com/api/auth/signup", {
           method: "POST",
           credentials: 'include',
           headers: {

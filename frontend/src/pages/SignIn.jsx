@@ -27,7 +27,7 @@ function SignIn() {
     console.log(formData);
     try {
       dispatch(signInStart());
-      const req = await fetch("http://localhost:3000/api/auth/signin", {
+      const req = await fetch("https://haxplore-deployement.onrender.com/api/auth/signin", {
         method: "POST",
         credentials: "include",
         headers: {

@@ -31,7 +31,7 @@ function Bookings() {
     const fetchDetails = async () => {
       setLoading(true);
       let results = await fetch(
-        `http://localhost:3000/api/booking/getBookings/${userId}`,
+        `https://haxplore-deployement.onrender.com/api/booking/getBookings/${userId}`,
         {
           method: "GET",
           credentials: "include",
@@ -54,7 +54,7 @@ function Bookings() {
     console.log(id);
     setLoading(true);
     const req = await fetch(
-      `http://localhost:3000/api/booking/getOneBooking/${id}`,
+      `https://haxplore-deployement.onrender.com/api/booking/getOneBooking/${id}`,
       {
         method: "GET",
         credentials: "include",
@@ -73,7 +73,7 @@ function Bookings() {
   const remove = async (id) => {
     console.log(id);
     const req = await fetch(
-      `http://localhost:3000/api/booking/cancelBooking/${id}`,
+      `https://haxplore-deployement.onrender.com/api/booking/cancelBooking/${id}`,
       {
         method: "DELETE",
         credentials: "include",
@@ -85,7 +85,7 @@ function Bookings() {
     const data = await req.json();
     if (data.error) console.log(data.error);
     const req2 = await fetch(
-      `http://localhost:3000/api/booking/get-transaction-record/${id}`,
+      `https://haxplore-deployement.onrender.com/api/booking/get-transaction-record/${id}`,
       {
         method: "GET",
         credentials: "include",

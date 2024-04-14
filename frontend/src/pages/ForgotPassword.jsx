@@ -32,7 +32,7 @@ function ForgotPassword() {
       return setError("Passwords do not match");
     console.log(formData, userID);
     const res = await fetch(
-      `http://localhost:3000/api/forgot-password/set-newPassword/${userID}`,
+      `https://haxplore-deployement.onrender.com/api/forgot-password/set-newPassword/${userID}`,
       {
         method: "POST",
         credentials: "include",

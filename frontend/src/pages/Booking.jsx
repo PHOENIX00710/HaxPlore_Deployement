@@ -109,7 +109,7 @@ function Booking() {
       const passDate = `${formattedDay}-${formattedMonth}-${year}`;
       console.log("pass:", passDate);
       const req = await fetch(
-        `http://localhost:3000/api/booking/getBookedSlots/${passDate}`,
+        `https://haxplore-deployement.onrender.com/api/booking/getBookedSlots/${passDate}`,
         {
           method: "GET",
           credentials: "include",

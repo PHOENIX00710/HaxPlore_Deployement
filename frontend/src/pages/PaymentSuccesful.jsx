@@ -14,7 +14,7 @@ function PaymentSuccesful() {
   useEffect(() => {
     const newBooking = async () => {
       const req = await fetch(
-        `http://localhost:3000/api/booking/newBooking/${userId}`,
+        `https://haxplore-deployement.onrender.com/api/booking/newBooking/${userId}`,
         {
           method: "POST",
           credentials: "include",
@@ -38,7 +38,7 @@ function PaymentSuccesful() {
     const transactionId = urlParams.get("session_id");
     const saveInBlockChain = async () => {
       console.log("Hello",bookingID,transactionId);
-      const req = await fetch(`http://localhost:3000/api/booking/store-transaction-records`, {
+      const req = await fetch(`https://haxplore-deployement.onrender.com/api/booking/store-transaction-records`, {
         method: "POST",
         credentials: "include",
         headers: {

@@ -36,7 +36,7 @@ function Navbar(props) {
 
   const handleClick = async (e) => {
     if (link === "/signin") return navigate("/signin");
-    let url = "http://localhost:3000/api/auth/signout";
+    let url = "https://haxplore-deployement.onrender.com/api/auth/signout";
     const req = await fetch(url, {
       method: "POST",
       credentials: "include",

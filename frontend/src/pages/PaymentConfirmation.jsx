@@ -59,7 +59,7 @@ function PaymentConfirmation() {
       "pk_test_51OzkIrSDUKDjRLRHQYHYyVY6t2XwGI82VMIMiewZjDUErzCuIYOoZXkoSerqvbxsDoJkDgSfZoS7UoNCze3Ut2ZO00bFdwLV18"
     );
     const req = await fetch(
-      "http://localhost:3000/api/payment/create-checkout-session",
+      "https://haxplore-deployement.onrender.com/api/payment/create-checkout-session",
       {
         method: "POST",
         credentials: "include",

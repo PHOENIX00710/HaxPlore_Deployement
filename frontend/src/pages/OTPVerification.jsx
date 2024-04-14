@@ -29,7 +29,7 @@ function OTPVerification() {
   const getOTP = async () => {
     console.log(formData.email);
     if (!formData.email) return;
-    const res = await fetch(`http://localhost:3000/api/forgot-password/send-OTP/${formData.email}`, {
+    const res = await fetch(`https://haxplore-deployement.onrender.com/api/forgot-password/send-OTP/${formData.email}`, {
       method: "GET",
       credentials: 'include',
       headers: {
@@ -47,7 +47,7 @@ function OTPVerification() {
     setSuccess(false);
     console.log(formData.OTP,userID);
     const res = await fetch(
-      `http://localhost:3000/api/forgot-password/verify-OTP/${userID}`,
+      `https://haxplore-deployement.onrender.com/api/forgot-password/verify-OTP/${userID}`,
       {
         method: "POST",
         credentials: 'include',
