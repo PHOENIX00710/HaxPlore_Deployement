@@ -4,6 +4,7 @@ export const newOrder = async (req, res) => {
   const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
   const items = req.body;
 
+  console.log("Hello");
   const lineItems = items.map((item) => ({
     price_data: {
       currency: "usd",
@@ -14,14 +15,14 @@ export const newOrder = async (req, res) => {
     },
     quantity: item.qnty
   }));
-
+  console.log("Hello2");
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
       // Dynamically add the session ID as a query parameter to the success URL
-      success_url: `https://namasteayodhya.vercel.app/donePayment?session_id=${CHECKOUT_SESSION_ID}`,
+      success_url: `https://namasteayodhya.vercel.app/donePayment`,
       cancel_url: "https://namasteayodhya.vercel.app/failedPayment",
     });
     console.log(session);

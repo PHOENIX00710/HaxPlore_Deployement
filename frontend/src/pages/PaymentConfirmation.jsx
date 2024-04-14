@@ -58,6 +58,7 @@ function PaymentConfirmation() {
     const stripe = await loadStripe(
       "pk_test_51OzkIrSDUKDjRLRHQYHYyVY6t2XwGI82VMIMiewZjDUErzCuIYOoZXkoSerqvbxsDoJkDgSfZoS7UoNCze3Ut2ZO00bFdwLV18"
     );
+    console.log(items);
     const req = await fetch(
       "https://haxplore-deployement.onrender.com/api/payment/create-checkout-session",
       {
