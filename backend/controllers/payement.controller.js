@@ -21,8 +21,8 @@ export const newOrder = async (req, res) => {
       line_items: lineItems,
       mode: "payment",
       // Dynamically add the session ID as a query parameter to the success URL
-      success_url: `https://namasteayodhya.vercel.app/donePayment?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: "https://namasteayodhya.vercel.app/failedPayment",
+      success_url: `https://namasteayodhya.onrender.com/donePayment?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: "https://namasteayodhya.onrender.com/failedPayment",
     });
     console.log(session);
     res.json({ session, id: session.id });
