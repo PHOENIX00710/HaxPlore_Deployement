@@ -38,7 +38,7 @@ export const signup = async (req, res) => {
             await newUser.save();
             res.status(201).json({
                 status: "User Created Successful",
-                newUser
+                userEmail: newUser
             })
         }
         else {
