@@ -36,10 +36,11 @@ function OAuth() {
     try {
       dispatch(signInStart());
       const result = await signInWithPopup(auth, provider);
+      console.log(result);
       // Submit data for database
       try {
         const res = await fetch(
-          "https://haxplore-deployement.onrender.com/api/auth/google",
+          "https://haxplore-deployement.onrender.com/api/v1/user/google",
           {
             method: "POST",
             credentials: "include",
@@ -57,8 +58,7 @@ function OAuth() {
           dispatch(signInFailure());
           return toast.error(data.message);
         }
-        console.log(data.userEmail);
-        dispatch(signInSuccess(data.userEmail));
+        dispatch(signInSuccess(data.user));
       } catch (error) {
         console.log(error);
         toast.error(error.message);
@@ -70,7 +70,7 @@ function OAuth() {
       navigate("/signin");
       return;
     }
-    toast.success("Signed in successfully!");
+    toast.success("Signin Successfull");
     navigate("/");
   };
 
