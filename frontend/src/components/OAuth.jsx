@@ -40,7 +40,7 @@ function OAuth() {
       // Submit data for database
       try {
         const res = await fetch(
-          "https://haxplore-deployement.onrender.com/api/v1/user/google",
+          "https://haxplore-deployement.onrender.com/api/auth/google",
           {
             method: "POST",
             credentials: "include",

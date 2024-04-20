@@ -6,7 +6,6 @@ const genTokenAndSetCookie = (userId, res) => {
     })
     console.log("Token: ", token);
     res.cookie("jwt", token, {
-        maxAge: 2 * 60 * 60 * 1000,//ms
         httpOnly: true,
         sameSite: 'None',
         secure: true,//prevents CSRF(Cross Site Request Forgery) attacks
