@@ -81,6 +81,48 @@ export const signout = async (req, res) => {
 }
 
 
-export const google = (req, res) => {
-    res.json({ success: true })
+export const google = async (req, res) => {
+    const { name, email } = req.body;
+    console.log(name, email);
+    if (!name || !email || email === '' || name === '') {
+        return (
+            res.status(401).json({
+                success: false,
+                message: 'Error in entered data'
+            })
+        )
+    }
+    const password = Math.random().toString(36).slice(-8)
+    const hashedPassword = await bcrypt.hash(password, 10)
+
+    const userExists = await User.findOne({ email });
+    if (userExists) {
+        console.log(userExists);
+        genTokenAndSetCookie(userExists._id, res)
+        delete userExists.password
+        res.status(200).json({ user: userExists, message: "Logged In Successfully!" })
+        return
+    }
+
+    try {
+        const newUser = await User.create({
+            name,
+            email,
+            password: hashedPassword,
+        })
+        await newUser.save()
+        console.log(newUser);
+        genTokenAndSetCookie(newUser._id, res)
+        delete newUser.password
+        res.status(200).json({ user: newUser, message: "Logged In Successfully!" })
+    }
+    catch (e) {
+        console.log(e);
+        return (
+            res.status(500).json({
+                success: false,
+                message: 'Internal server error'
+            })
+        )
+    }
 }

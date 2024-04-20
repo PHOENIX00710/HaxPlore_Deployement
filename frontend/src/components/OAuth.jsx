@@ -38,19 +38,22 @@ function OAuth() {
       const result = await signInWithPopup(auth, provider);
       // Submit data for database
       try {
-        const res = await fetch("https://haxplore-deployement.onrender.com/api/auth/signup", {
-          method: "POST",
-          credentials: 'include',
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: result.user.email,
-            name: result.user.displayName,
-          }),
-        });
+        const res = await fetch(
+          "https://haxplore-deployement.onrender.com/api/auth/google",
+          {
+            method: "POST",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: result.user.email,
+              name: result.user.displayName,
+            }),
+          }
+        );
         const data = await res.json();
-        if (data.error) {
+        if (data.success === false) {
           dispatch(signInFailure());
           return toast.error(data.message);
         }
